@@ -1,17 +1,32 @@
-import React from 'react'
-import Link from 'next/link'
+import React from 'react';
+import {NextContext} from "next";
+import {getShows, Show} from "../api/api";
 
-export default () => (
-  <ul>
-    <li>
-      <Link href="/a" as="/a">
-        <a>a</a>
-      </Link>
-    </li>
-    <li>
-      <Link href="/b" as="/b">
-        <a>b</a>
-      </Link>
-    </li>
-  </ul>
-)
+interface Props {
+    shows: Show[]
+}
+
+export default class extends React.Component<Props> {
+
+    static getInitialProps = async function (_context: NextContext) {
+        const shows = await getShows();
+        console.log(`Show data fetched. Count: ${shows.length}`);
+        return {shows};
+    };
+
+    render() {
+        return (
+            <div>
+                <h1>Home</h1>
+                <hr/>
+                <ul>
+                    {
+                        this.props.shows.map(show => (
+                            <li key={show.id}>{show.name}</li>
+                        ))
+                    }
+                </ul>
+            </div>
+        )
+    }
+}

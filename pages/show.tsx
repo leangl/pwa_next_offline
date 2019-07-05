@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {getShow, Show} from "../api/api";
 import {NextContext} from "next";
 
@@ -23,6 +24,10 @@ export default class extends React.Component<Props> {
                 <hr/>
                 <h2>{show.name}</h2>
                 <p>{show.summary.replace(/<[/]?p>/g, '')}</p>
+                <br/>
+                <Link href={"/"}>
+                    <button>Go to Home</button>
+                </Link>
             </div>
         )
     }

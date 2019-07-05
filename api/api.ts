@@ -10,8 +10,10 @@ export type Show = {
 export const getShows = async (): Promise<Show[]> => {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
     const data = await res.json();
-
-    console.log(`Show data fetched. Count: ${data.length}`);
-
     return data.map(entry => entry.show);
+};
+
+export const getShow = async (id: string): Promise<Show> => {
+    const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
+    return await res.json();
 };

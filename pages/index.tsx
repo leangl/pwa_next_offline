@@ -1,5 +1,6 @@
 import React from 'react';
 import {NextContext} from "next";
+import Link from 'next/link';
 import {getShows, Show} from "../api/api";
 
 interface Props {
@@ -22,7 +23,11 @@ export default class extends React.Component<Props> {
                 <ul>
                     {
                         this.props.shows.map(show => (
-                            <li key={show.id}>{show.name}</li>
+                            <li key={show.id}>
+                                <Link href={`/show?id=${show.id}`}>
+                                    <a>{show.name}</a>
+                                </Link>
+                            </li>
                         ))
                     }
                 </ul>

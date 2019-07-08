@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-with-appshell",
+  "name": "pwa_next_offline",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon",

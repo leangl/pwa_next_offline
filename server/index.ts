@@ -14,7 +14,9 @@ app.prepare().then(() => {
         const parsedUrl = parse(req.url!, true)
         const {pathname} = parsedUrl
 
-        if (pathname === '/appshell') {
+        if (pathname === '/service-worker.js') {
+            return app.serveStatic(req, res, join(root, '.next/service-worker.js'))
+        } else if (pathname === '/appshell') {
             return app.serveStatic(req, res, join(root, '/static/appshell.html'))
         } else {
             handle(req, res, parsedUrl)

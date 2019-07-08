@@ -9,3 +9,7 @@ dist
 
 # IntelliJ
 .idea
+
+# next.js export output
+out
+static/appshell.html

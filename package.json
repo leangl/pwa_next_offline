@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc --project tsconfig.server.json && next export && mkdirp static && cp out/appshell/index.html static/appshell.html",
-    "start": "cross-env NODE_ENV=production node dist/index.js"
+    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "clean": "rm -rf ./static/manifest .next out dist ./static/appshell.html"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",

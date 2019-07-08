@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json && next export && cp out/appshell/index.html static/appshell.html",
+    "build": "next build && tsc --project tsconfig.server.json && next export && mkdirp static && cp out/appshell/index.html static/appshell.html",
     "start": "cross-env NODE_ENV=production node dist/index.js"
   },
   "dependencies": {

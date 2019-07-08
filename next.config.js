@@ -11,6 +11,7 @@ module.exports = withOffline(withTypescript({
         navigateFallback: '/static/appshell.html',
         navigateFallbackBlacklist: [/^\/static/, /^\/_next/],
         globPatterns: ['static/**/*'],
+        globIgnores: ['static/appshell.html'],
         globDirectory: '.',
         skipWaiting: true,
         clientsClaim: true

@@ -1,7 +1,8 @@
 const withTypescript = require('@zeit/next-typescript')
 const withOffline = require('next-offline')
+const withManifest = require('next-manifest')
 
-module.exports = withOffline(withTypescript({
+module.exports = withManifest(withOffline(withTypescript({
     exportPathMap: function () {
         return {
             '/appshell': {page: '/appshell'}
@@ -33,5 +34,14 @@ module.exports = withOffline(withTypescript({
             url: '/static/appshell.html',
             revision: Date.now().toString()
         }]);
+    },
+    manifest: {
+        icons: [
+            {
+                "src": "/static/icon-144x144.png",
+                "sizes": "144x144",
+                "type": "image/png"
+            }
+        ]
     }
-}))
+})))

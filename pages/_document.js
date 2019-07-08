@@ -1,4 +1,5 @@
 import Document, {Html, Head, Main, NextScript} from 'next/document';
+import Manifest from 'next-manifest/manifest';
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -9,7 +10,9 @@ class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head/>
+                <Head>
+                    <Manifest/>
+                </Head>
                 <body>
                     <Main/>
                     <NextScript/>

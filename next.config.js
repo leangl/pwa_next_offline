@@ -2,15 +2,18 @@ const withOffline = require('next-offline')
 const withManifest = require('next-manifest')
 
 module.exports = withManifest(withOffline({
+    experimental: {
+        publicDirectory: true,
+    },
     workboxOpts: {
+        swDest: '../public/service-worker.js',
         navigateFallback: '/appshell',
         navigateFallbackBlacklist: [/^\/static/, /^\/_next/],
         globPatterns: ['static/**/*'],
-        globIgnores: ['static/appshell.html', 'static/warmup-cache.js'],
         globDirectory: '.',
         skipWaiting: true,
         clientsClaim: true,
-        importScripts: ['/static/warmup-cache.js'],
+        importScripts: ['/warmup-cache.js'],
         runtimeCaching: [{
             urlPattern: new RegExp('^https://api.tvmaze.com/'),
             handler: 'NetworkFirst',

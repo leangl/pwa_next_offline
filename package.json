@@ -2,10 +2,10 @@
   "name": "pwa_next_offline",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon",
-    "build": "next build && tsc --project tsconfig.server.json",
-    "start": "cross-env NODE_ENV=production node dist/index.js",
-    "clean": "rm -rf ./static/manifest .next dist"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "clean": "rm -rf ./static/manifest .next ./public/service-worker.js"
   },
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",

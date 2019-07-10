@@ -1,5 +1,5 @@
 import React from 'react';
-import {NextContext} from "next";
+import {NextPageContext} from "next";
 import Link from 'next/link';
 import {getShows, Show} from "../api/api";
 
@@ -9,7 +9,7 @@ interface Props {
 
 export default class extends React.Component<Props> {
 
-    static getInitialProps = async function (_context: NextContext) {
+    static getInitialProps = async function (_context: NextPageContext) {
         const shows = await getShows();
         console.log(`Show data fetched. Count: ${shows.length}`);
         return {shows};

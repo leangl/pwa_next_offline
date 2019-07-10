@@ -7,9 +7,13 @@ export type Show = {
     summary: string
 }
 
+type ShowsResponse = {
+    show: Show
+}
+
 export const getShows = async (): Promise<Show[]> => {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-    const data = await res.json();
+    const data: ShowsResponse[] = await res.json();
     return data.map(entry => entry.show);
 };
 

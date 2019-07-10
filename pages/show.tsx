@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import {getShow, Show} from "../api/api";
-import {NextContext} from "next";
+import {NextPageContext} from "next";
 
 interface Props {
     show: Show
@@ -9,8 +9,9 @@ interface Props {
 
 export default class extends React.Component<Props> {
 
-    static getInitialProps = async function (context: NextContext) {
+    static getInitialProps = async function (context: NextPageContext) {
         const {id} = context.query;
+        // @ts-ignore
         const show = await getShow(id);
         console.log(`Fetched show: ${show.name}`);
         return {show};

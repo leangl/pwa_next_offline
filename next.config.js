@@ -1,15 +1,9 @@
-const withTypescript = require('@zeit/next-typescript')
 const withOffline = require('next-offline')
 const withManifest = require('next-manifest')
 
-module.exports = withManifest(withOffline(withTypescript({
-    exportPathMap: function () {
-        return {
-            '/appshell': {page: '/appshell'}
-        }
-    },
+module.exports = withManifest(withOffline({
     workboxOpts: {
-        navigateFallback: '/static/appshell.html',
+        navigateFallback: '/appshell',
         navigateFallbackBlacklist: [/^\/static/, /^\/_next/],
         globPatterns: ['static/**/*'],
         globIgnores: ['static/appshell.html', 'static/warmup-cache.js'],
@@ -31,7 +25,7 @@ module.exports = withManifest(withOffline(withTypescript({
     },
     transformManifest: originalManifest => {
         return originalManifest.concat([{
-            url: '/static/appshell.html',
+            url: '/appshell',
             revision: Date.now().toString()
         }]);
     },
@@ -44,4 +38,4 @@ module.exports = withManifest(withOffline(withTypescript({
             }
         ]
     }
-})))
+}))

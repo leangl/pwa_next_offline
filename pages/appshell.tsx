@@ -8,6 +8,7 @@ interface State {
 
 export default class extends React.Component<{}, State> {
 
+    //@ts-ignore
     constructor(props) {
         super(props)
         this.state = {
@@ -40,8 +41,8 @@ export default class extends React.Component<{}, State> {
             <>
                 {
                     error ?
-                        //TODO: statusCode
-                        <Error statusCode={404}/>
+                        //TODO: statusCode and title
+                        <Error statusCode={404} title={"Page not found"}/>
                         :
                         <span>Loading...</span>
                 }

@@ -16,6 +16,9 @@ export default class extends React.Component<{}, State> {
         }
     }
 
+    static getInitialProps = async function () {
+        return {};
+    };
 
     componentDidMount() {
         Router.replace(location.href)
